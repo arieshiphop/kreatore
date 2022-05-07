@@ -21,7 +21,12 @@ Kreatore is a static website generator. It builds out an entire html and css pro
 ```bash
   python -m pytest
 ```
-## How to start
+#### Run application using:
+```bash
+  Write your markdown in ./webpage.md 
+  Run python app.py
+```
+## Files
 - ./webpage.md is the md where you will write your Markdown webpage
 - ./index.html is the html in where code will be injected
 - ./__init__.py is the script where the execute code will be started
