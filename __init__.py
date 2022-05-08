@@ -6,7 +6,7 @@ def convert_markdown_to_html(md_file):
     """
     html_file = open("./index.html", "w")
     
-    md = Markdown_Reader(md_file)
+    md = Markdown_Reader(md_file,"dark")
     html = md.generate_html_from_md()
     style = md.generate_style_for_html()
     html_file.write(html)

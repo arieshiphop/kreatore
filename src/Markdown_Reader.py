@@ -1,7 +1,7 @@
 class Markdown_Reader:
-    def __init__(self, md_file):
+    def __init__(self, md_file,theme ="dark"):
         self.md_file = md_file
-        
+        self.theme = theme
         self.html = []
       
 
@@ -67,53 +67,102 @@ class Markdown_Reader:
     def write_into_md_file_custom(self,text):
         with open(self.md_file, 'w') as f:
             f.write(text.strip())
-    def generate_style_for_html(self):
+    
+    def generate_style_for_html(self,theme="dark"):
         """
         Generate style for html.
         """
-        theme1 = """
-        
-        <style>
-        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
-        *{
-            margin:0;
-            padding:0;
-            box-sizing:border-box;
-            font-family:Roboto, Arial;
-            color:#fff;
-        }
-        body{
-            min-width:100vh;
-            background-color: #212121;
-            text-align:center;
-        }
-        h1 {
-            font-size: 2em;
-            margin: 0.67em 0;
-        }
-        h2 {
-            font-size: 1.5em;
-            margin: 0.67em 0;
-        }
-        h3 {
-            font-size: 1.17em;
-            margin: 0.83em 0;
-        }
-        li{
-            list-style:none;
-            list-style-type:none;
+        theme = self.theme
+        if theme == "dark":
+            theme1 = """
             
-        }
-        a{
-            text-decoration:none;
-            color:white;
-        }
-        a:hover{
-            text-decoration:underline;
-            cursor:pointer;
-        }
-        img{
-            max-width:30vw;
-        }
-        """
-        return theme1
+            <style>
+            @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
+            *{
+                margin:0;
+                padding:0;
+                box-sizing:border-box;
+                font-family:Roboto, Arial;
+                color:#fff;
+            }
+            body{
+                min-width:100vh;
+                background-color: #212121;
+                text-align:center;
+            }
+            h1 {
+                font-size: 2em;
+                margin: 0.67em 0;
+            }
+            h2 {
+                font-size: 1.5em;
+                margin: 0.67em 0;
+            }
+            h3 {
+                font-size: 1.17em;
+                margin: 0.83em 0;
+            }
+            li{
+                list-style:none;
+                list-style-type:none;
+                
+            }
+            a{
+                text-decoration:none;
+                color:white;
+            }
+            a:hover{
+                text-decoration:underline;
+                cursor:pointer;
+            }
+            img{
+                max-width:30vw;
+            }
+            """
+            return theme1
+        if theme == "light":
+            theme2 = """
+            <style>
+            *{
+                margin:0;
+                padding:0;
+                box-sizing:border-box;
+                font-family:Roboto, Arial;
+                color:black;
+            }
+            body{
+                min-width:100vh;
+                background-color: #fff;
+                text-align:center;
+            }
+            h1 {
+                font-size: 2em;
+                margin: 0.67em 0;
+            }
+            h2 {
+                font-size: 1.5em;
+                margin: 0.67em 0;
+            }
+            h3 {
+                font-size: 1.17em;
+                margin: 0.83em 0;
+            }
+            li{
+                list-style:none;
+                list-style-type:none;
+                
+            }
+            a{
+                text-decoration:none;
+                color:white;
+            }
+            a:hover{
+                text-decoration:underline;
+                cursor:pointer;
+            }
+            img{
+                max-width:30vw;
+            }
+            </style>
+            """
+            return theme2
